@@ -1,0 +1,10 @@
+.spinner-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+:host ::ng-deep .p-button {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}

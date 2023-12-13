@@ -1,0 +1,28 @@
+<div *ngIf="spinner; else data" class="m-0 p-0 spinner-container grid justify-content-center align-content-center">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+
+<ng-template #data>
+  <app-header></app-header>
+  <div class="grid gap-6 justify-content-center p-5">
+    <div *ngFor="let product of products; index as i" class="p-4 col-12 md:col-3 shadow-1 animate__animated animate__backInDown">
+      <div class="grid">
+        <div class="col-12">
+          <img class="w-full" [src]="product.images[1]" [alt]="product?.title">
+        </div>
+      </div>
+      <div class="flex flex-column justify-content-evenly gap-2">
+        <span class="font-bold text-lg">{{product.title}}</span>
+        <span class="description font-light text-lg">{{product.description}}</span>
+        <span class="font-bold text-primary text-xl">${{product.price}}</span>
+        <p-button [routerLink]="['product', product.id]" label="VIEW DETAIL"></p-button>
+      </div>
+    </div>
+  </div>
+  <section class="flex pt-4 justify-content-center gap-5">
+    <button (click)="getAllProducts(-9)" class="inline-block" pButton type="button" label="Previous page"></button>
+    <button (click)="getAllProducts(9)" class="inline-block" pButton type="button" label="Next page"
+      class="p-button-secondary"></button>
+  </section>
+  <app-footer></app-footer>
+</ng-template>

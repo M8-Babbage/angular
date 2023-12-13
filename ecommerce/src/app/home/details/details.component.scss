@@ -1,0 +1,28 @@
+.spinner-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.left-arrow, .right-arrow {
+  position: absolute;
+  color: #ffffff;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-text-stroke: 2px black;
+  font-size: 25px;
+}
+
+.left-arrow {
+  left: 20px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.right-arrow {
+  right: 20px;
+}
+
+:host ::ng-deep .p-button {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}

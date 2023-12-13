@@ -1,0 +1,25 @@
+<h1>Información del usuario</h1>
+<hr>
+<div class="row">
+  <div class="col-4">
+    <h3>Usuario actual: {{ this.userId() }}</h3>
+
+    <button (click)="loadUser(userId() - 1)" class="btn btn-primary">Anterior</button>
+    &nbsp;
+    <button (click)="loadUser(userId() + 1)" class="btn btn-primary">Siguiente</button>
+  </div>
+
+  <!-- Validamos si existe el usuario, si no existe, cargamos el template elseBlock -->
+  <div *ngIf="currentUser();" class="col-8">
+    <h3>Usuario: </h3>
+    <!-- Cargamos forzadamente ya que estamos seguros que existe el usuario por el ngIf -->
+    <h3>Email: {{ currentUser()!.email }}</h3>
+    <h3>Nombre: {{ computedName()}}</h3>
+    <img class="rounded" [src]="currentUser()!.avatar" [alt]="currentUser()!.first_name">
+  </div>
+
+  <div *ngIf="!userWasFound()" class="col-8 text-danger">
+    <h3>Usuario no encontrado</h3>
+  </div>
+
+</div>

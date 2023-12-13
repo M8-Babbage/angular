@@ -1,0 +1,28 @@
+<div *ngIf="spinner; else data" class="m-0 p-0 spinner-container grid justify-content-center align-content-center">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+
+<ng-template #data>
+  <app-header></app-header>
+  <section class="grid w-12 xl:w-8 m-0 p-0 mt-5 m-auto p-4">
+    <div class="col-12 md:col-6 relative animate__animated animate__backInUp">
+      <i (click)="changeImage('previous')" class="left-arrow cursor-pointer icon icon-arrow"></i>
+      <i (click)="changeImage('next')" class="right-arrow cursor-pointer icon icon-arrow"></i>
+      <img [src]="currentImage" [alt]="product.title" [height]="height" class="w-full">
+    </div>
+    <div class="col-12 md:col-6 p-5 grid flex-column justify-content-center">
+      <span class="text-4xl animate__animated animate__backInDown">{{product.title}}</span>
+      <span class="font-bold text-red-600 text-xl mt-3 animate__animated animate__backInLeft">${{product.price}}</span>
+      <span class="description font-light text-lg mt-3 animate__animated animate__backInRight">{{product.description}}</span>
+      <p-button (onClick)="launchSwal($event)" class="button-car mt-3 animate__animated animate__backInUp" label="ADD TO CART"></p-button>
+    </div>
+  </section>
+  <div class="grid w-12 xl:w-8 m-0 p-0 m-auto justify-content-center md:justify-content-start">
+    <div class="col-12 md:col-6 grid justify-content-center">
+      <div *ngFor="let item of images; index as i" class="cursor-pointer col-4 md:col-2">
+        <img (click)="changeSelectedImage(i)" [src]="item" [alt]="product.title" height="70" class="w-full">
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</ng-template>

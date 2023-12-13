@@ -1,0 +1,11 @@
+:host ::ng-deep .p-splitter-gutter {
+  display: none;
+}
+
+
+// Media query cuando la pantalla es menor a 768px
+@media screen and (max-width: 768px) {
+  .test {
+    transform: scale(0.7);
+  }
+}

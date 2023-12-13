@@ -1,0 +1,16 @@
+@import "functions";
+@import "variables";
+
+// Modify bootstrap colors
+// $theme-colors: (
+//   'primary': #ff0000,
+//   'danger': #ff00f2,
+// );
+
+// Create custom colors
+$custom-colors: (
+  "custom-color": #d4a959,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
